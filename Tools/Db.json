@@ -1,0 +1,43 @@
+{
+  "172.24.32.16": {
+    "IPAddress": "172.24.32.16",
+    "Port": 8889,
+    "ReportGap": 15,
+    "DBIPAddress": "172.20.150.16",
+    "DBPort": 3306,
+    "DBInstanceName": "windxbld",
+    "DBUserName": "windxbld",
+    "DBPassword": "Kbse#18windx",
+    "SolverInfo": [
+      {
+        "SolverVersion": "Bladed4.3",
+        "SolverPath": "C:\\Program Files (x86)\\Bladed4.3"
+      },
+      {
+        "SolverVersion": "Bladed4.7",
+        "SolverPath": "C:\\Program Files (x86)\\DNV GL\\Bladed4.7"
+      }
+    ]
+  },
+  "192.168.1.2": {
+    "IPAddress": "192.168.1.2",
+    "Port": 8889,
+    "ReportGap": 15,
+    "DBIPAddress": "172.20.150.16",
+    "DBPort": 3306,
+    "DBInstanceName": "windxbld",
+    "DBUserName": "windxbld",
+    "DBPassword": "Kbse#18windx",
+    "SolverInfo": [
+      {
+        "SolverVersion": "Bladed4.3",
+        "SolverPath": "C:\\Program Files (x86)\\Bladed4.3"
+      },
+      {
+        "SolverVersion": "Bladed4.7",
+        "SolverPath": "C:\\Program Files (x86)\\DNV GL\\Bladed4.7"
+      }
+    ]
+  },
+  "ListenPort":10024
+}
