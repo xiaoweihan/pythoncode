@@ -21,12 +21,15 @@ class AttenceInfo(object):
     def AddAttenceContent(self,strTime):
         self.List.append(strTime)
 
-    def GetEmployeeName(self):
+    @property
+    def employee_id(self):
+        return self.employeeID
+
+    @property
+    def employee_name(self):
         return self.employeeName
 
-    def GetEmployeeDept(self):
+    @property
+    def employee_dept(self):
         return self.employeeDept
-
-    def GetEmployeeID(self):
-        return self.employeeID
 

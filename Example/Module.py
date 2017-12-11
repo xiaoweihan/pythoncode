@@ -4,27 +4,62 @@ import random
 import doctest
 import unittest
 import types
+import os
+import subprocess
+
+def test_fun():
+    yield 1
+    print 'pause'
+    yield 2
+
+def counter(start_at=0):
+    count = start_at
+    while True:
+        val = (yield  count)
+        if val is not None:
+            count = val
+        else:
+            count += 1
+
+class Myclass(object):
 
 
-def test_generator(num):
-    for x in xrange(num):
-        yield x
+    def display(self):
+        print self.__class__.__name__
 
-def Add(a,b):
-    return a + b
 
-class TestAddMethod(unittest.TestCase):
-    def test_Add(self):
-        for x in xrange(10):
-            for y in xrange(10):
-                result = Add(x,y)
-                self.failUnless((x + y) == result,'test add failed.')
 
+def Test():
+    # f = os.popen('dir D:')
+    #
+    # for x in f:
+    #     print x
+
+    #os.execl(r'd:\TestRunOnPython.exe','xiaowei.han','chong.li')
+
+    result = subprocess.call([u'dir',u'D:\\boost'],shell=True)
+
+    print result
+
+    subprocess.Popen
 if __name__ == '__main__':
-    #unittest.main()
+    # test_iter = counter(5)
+    #
+    # print 'begin'
+    #
+    # print  test_iter.next()
+    #
+    # print  test_iter.next()
+    #
+    # test_iter.send(100)
+    #
+    # print  test_iter.next()
+    #
+    # print  test_iter.next()
+    #
+    # print 'end'
 
-    num = 1 + 1j
+    #A = Myclass()
 
-    print num.real,num.imag,num.conjugate()
+    Test()
 
-    print 1.0 / 2
