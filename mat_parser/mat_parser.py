@@ -5,6 +5,7 @@ load the mat file and convert it's data to txt file
 '''
 import os
 import os.path
+import shutil
 import re
 import numpy
 import argparse
@@ -108,6 +109,36 @@ def _filter_file(file_name):
             return result.group(1) + '.h5'
     return None
 
+
+#文件进行归类
+def _sort_files(target_dir):
+    file_list = os.listdir(target_dir)
+    file_sort_type = {}
+    for file_name in file_list:
+        if os.path.isfile(os.path.join(target_dir,file_name)):
+            result = re.match('^(\d{4}.\d{1,2}.\d{1,2})_.*', file_name)
+            if result:
+                if result.group(1) in file_sort_type:
+                    file_sort_type[result.group(1)].append(os.path.join(target_dir,file_name))
+                else:
+                    file_sort_type[result.group(1)] = []
+                    file_sort_type[result.group(1)].append(os.path.join(target_dir, file_name))
+
+
+
+    for key in file_sort_type:
+        dir_path = os.path.join(target_dir,key)
+
+        if not os.path.isdir(dir_path):
+            os.makedirs(dir_path)
+
+
+        for file_name in file_sort_type[key]:
+            shutil.move(file_name,dir_path)
+
+
+
+
 def main():
     #begin parse the command line
     command_parser = argparse.ArgumentParser(description='show the command usage')
@@ -140,6 +171,9 @@ def main():
             matConvert.mat_file_path = src_file_name
             matConvert.target_file_path = os.path.join(target_file_dir,target_file_name)
             matConvert.yield_data_to_target_file()
+
+
+    _sort_files(target_file_dir)
 
     print 'congratulations,It is a good job!'
 
