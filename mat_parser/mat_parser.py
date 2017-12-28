@@ -5,12 +5,12 @@ load the mat file and convert it's data to txt file
 '''
 import os
 import os.path
-
-import scipy.io
+import re
 import numpy
 import argparse
 import hd5_wrapper
-import re
+from scipy.io import loadmat
+
 class Mat_Converter(object):
 
 
@@ -58,7 +58,7 @@ class Mat_Converter(object):
 
     def yield_data_to_target_file(self):
         #load the mat file
-        matdata = scipy.io.loadmat(self.__mat_file_path)
+        matdata = loadmat(self.__mat_file_path)
         #Load the data
         value = matdata['DATA'][0,0]
         self.__key_list = [x for x in value.dtype.names]
@@ -110,27 +110,33 @@ def _filter_file(file_name):
 
 def main():
     #begin parse the command line
-    command_parser = argparse.ArgumentParser(description='show the command usage')
-    command_parser.add_argument('--src','-s',help='specific a mat file dir',required=True)
-    command_parser.add_argument('--target', '-t', help='specific a target file dir', required=True)
-    #command_parser.add_argument('--variable', '-v', help='select variable name', action='append')
-    command_parser.add_argument('--compress', '-c', help='set compress level', type=int,choices=range(0,10))
-    args = command_parser.parse_args()
+    # command_parser = argparse.ArgumentParser(description='show the command usage')
+    # command_parser.add_argument('--src','-s',help='specific a mat file dir',required=True)
+    # command_parser.add_argument('--target', '-t', help='specific a target file dir', required=True)
+    # #command_parser.add_argument('--variable', '-v', help='select variable name', action='append')
+    # command_parser.add_argument('--compress', '-c', help='set compress level', type=int,choices=range(0,10))
+    # args = command_parser.parse_args()
+    #
+    # mat_file_dir = args.src
+    # target_file_dir = args.target
+    # compress_level = args.compress
+    #
+    #
+    #
+    #
+    # if not os.path.exists(mat_file_dir):
+    #     print mat_file_dir,'is not exist.'
+    #     return
+    # if not os.path.isdir(mat_file_dir):
+    #     print mat_file_dir,'is not a dir.'
+    #     return
+    #
+    # if not os.path.exists(target_file_dir):
+    #     os.makedirs(target_file_dir)
 
-    mat_file_dir = args.src
-    target_file_dir = args.target
-    compress_level = args.compress
-
-    if not os.path.exists(mat_file_dir):
-        print mat_file_dir,'is not exist.'
-        return
-    if not os.path.isdir(mat_file_dir):
-        print mat_file_dir,'is not a dir.'
-        return
-
-    if not os.path.exists(target_file_dir):
-        os.makedirs(target_file_dir)
-
+    mat_file_dir = r'D:\data_LMT'
+    target_file_dir = r'D:\result_hdf5'
+    compress_level = 5
     #create a parser
     matConvert = Mat_Converter(compress_level=compress_level)
     for element in _recursive_dir(mat_file_dir,'.mat'):
