@@ -9,8 +9,9 @@ import shutil
 import re
 import numpy
 import argparse
+import scipy.io
 import hd5_wrapper
-from scipy.io import loadmat
+
 
 class Mat_Converter(object):
 
@@ -59,7 +60,7 @@ class Mat_Converter(object):
 
     def yield_data_to_target_file(self):
         #load the mat file
-        matdata = loadmat(self.__mat_file_path)
+        matdata = scipy.io.loadmat(self.__mat_file_path)
         #Load the data
         value = matdata['DATA'][0,0]
         self.__key_list = [x for x in value.dtype.names]

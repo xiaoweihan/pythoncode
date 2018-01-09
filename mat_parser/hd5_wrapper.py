@@ -138,44 +138,44 @@ class Hd5Wrapper(object):
             else:
                 group_object.create_dataset(key,data=dict_object[key].data,chunks=True,compression='gzip',compression_opts=dict_object[key].compress_level)
 
-def main():
-    def write_file():
-        '''
-
-        :return:
-        '''
-
-        A = numpy.array([[1,2,3,4],[4,5,6,7],[6,7,8,9]])
-
-        tempdata = Hdf5Data(A,6)
-
-        write_content = {}
-        write_content['河北'] = tempdata
-
-
-        person_name = ['xww','s','d']
-
-        tempdata = Hdf5Data(person_name, 6, 3, 3)
-
-        write_content['江苏'] = tempdata
-
-
-        wrapper = Hd5Wrapper()
-        wrapper.file_path = r'd:\foo1.h5'
-        wrapper.data = write_content
-        wrapper.write_file()
-    def read_file():
-        '''
-
-        :return:
-        '''
-        wrapper = Hd5Wrapper()
-        wrapper.file_path = r'd:\foo1.h5'
-        wrapper.read_file()
-        wrapper.display_content()
-
-    write_file()
-    #read_file()
-
-if '__main__' == __name__:
-    main()
+# def main():
+#     def write_file():
+#         '''
+#
+#         :return:
+#         '''
+#
+#         A = numpy.array([[1,2,3,4],[4,5,6,7],[6,7,8,9]])
+#
+#         tempdata = Hdf5Data(A,6)
+#
+#         write_content = {}
+#         write_content['河北'] = tempdata
+#
+#
+#         person_name = ['xww','s','d']
+#
+#         tempdata = Hdf5Data(person_name, 6, 3, 3)
+#
+#         write_content['江苏'] = tempdata
+#
+#
+#         wrapper = Hd5Wrapper()
+#         wrapper.file_path = r'd:\foo1.h5'
+#         wrapper.data = write_content
+#         wrapper.write_file()
+#     def read_file():
+#         '''
+#
+#         :return:
+#         '''
+#         wrapper = Hd5Wrapper()
+#         wrapper.file_path = r'd:\foo1.h5'
+#         wrapper.read_file()
+#         wrapper.display_content()
+#
+#     write_file()
+#     #read_file()
+#
+# if '__main__' == __name__:
+#     main()
