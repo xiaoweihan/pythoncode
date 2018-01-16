@@ -1,8 +1,5 @@
 #coding=utf8
 
-
-
-
 import os
 import subprocess
 import shutil
@@ -61,6 +58,7 @@ def run_thread_group_process(exec_file_name,dir_name,file_num):
             print strforamt % (subelement[0], subelement[1])
     return sum(total_file), max(total_cost)
 
+
 def run_openmp_group_process(exec_file_name,dir_name,file_num):
     total_cost = []
     total_file = []
@@ -101,21 +99,16 @@ def sort_file():
         ncount += 1
 
 if __name__ == '__main__':
-
-
     dir_name = ''
     exec_file_name = ''
     sub_dir_name = ''
-
     file_num_array = []
     multi_thread_cost = []
     openmp_cost = []
     multi_process_cost = []
     serial_cost = []
-
     for x in xrange(48,500,48):
         file_num_array.append(x)
-
 
     for num in file_num_array:
         element = run_multi_process(exec_file_name,dir_name,num / 48,48)
@@ -136,6 +129,7 @@ if __name__ == '__main__':
     matplotlib.pyplot.plot(file_num_array, openmp_cost, label='openmp_cost')
     matplotlib.pyplot.plot(file_num_array, multi_process_cost, label='mult_process_cost')
     matplotlib.pyplot.plot(file_num_array, serial_cost, label='serial_cost')
+    matplotlib.pyplot.legend()
     matplotlib.pyplot.show()
 
 
