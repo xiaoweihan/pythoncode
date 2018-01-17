@@ -32,6 +32,9 @@ class Myclass(object):
     def change(self):
         self.__class__ = type(1)
 
+    def __init__(self):
+        self.__name = 'abc'
+
 
 
 def Test():
