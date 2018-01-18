@@ -60,9 +60,19 @@ def process_proc(**kwargs):
         new_file_name = _filter_file(file_name)
         if new_file_name:
             h5_file_name = os.path.join(kwargs['dir'],new_file_name)
-            matConvert = mat_parser.Mat_Converter(file_name,h5_file_name,kwargs['compress_level'])
-            matConvert.yield_data_to_target_file()
 
+            #查看mat文件版本
+            with open(file_name,'r') as f:
+                mat_version = f.read(10)
+
+            version = float(mat_version[7:])
+
+            if version >= 7.3:
+                matConvert = mat_parser.Mat73_Converter(file_name, h5_file_name, kwargs['compress_level'])
+                matConvert.yield_data_to_target_file()
+            else:
+                matConvert = mat_parser.Mat_Converter(file_name, h5_file_name, kwargs['compress_level'])
+                matConvert.yield_data_to_target_file()
 def main():
     #begin parse the command line
     command_parser = argparse.ArgumentParser(description='show the command usage')
