@@ -99,14 +99,13 @@ class DatFileParser(object):
             dat_content = fReader.read()
 
         #根据正则表达式找出header
-        str_find_header_re_pattern = r'\|CS,\d,.*\d+,.*\d+,'
+        str_find_header_re_pattern = r'\|CS,\d,\D*\d+,\D*\d+,'
         match_results = re.search(str_find_header_re_pattern,dat_content)
 
         if match_results is not None:
             start,end = match_results.span(0)
             header_info = dat_content[:end]
-            self._dat_content = bytearray(dat_content)
-
+            self._dat_content = dat_content[end:]
         return header_info
 
     def _select_all_result(self,str_pattern,str_content,result_array):
