@@ -11,11 +11,16 @@ from channel_info import *
 from frame_converter import *
 from unit_converter import *
 from component_converter import *
+from group_data_manager import *
 class SelFileParser(object):
     '''
     this class implement parse the sel file
     '''
 
+    drive_train_array = ['HSSbrakeTrq'.lower(), 'GenPwr'.lower(), 'GenAzim'.lower(), 'HssRate'.lower(),
+                         'GenLoss'.lower(), 'GenTrq'.lower(),
+                         'HssTrq'.lower(), 'LssRate'.lower(), 'LssTrq'.lower(), 'RotAzim'.lower(),
+                         'RotSpeed'.lower()]
 
     def __init__(self,file_path):
         self._sel_file_path = file_path
@@ -39,6 +44,9 @@ class SelFileParser(object):
 
         #转换因子列表,使用同质的array来提高效率
         self.channel_factor_array = array.array('f')#[]
+
+        #分组信息，冗余用来提高效率
+        self.group_info = Group_data_manager()
 
     def get_factor(self,index):
         '''
@@ -285,14 +293,20 @@ class SelFileParser(object):
             #                                                 ,results.group(3).strip(),results.group(4).strip()))
             channel_index = int(results.group(1))
             if 2 == channel_index:
-                temp_wind_speed_info = WindSpeedInfo('Wind1VelX',results.group(3).strip(),channel_index,'G')
+                temp_wind_speed_info = WindSpeedInfo('Wind1VelX',results.group(3).strip(),channel_index,'G','Environment')
                 self.wind_speed_array.append(temp_wind_speed_info)
+                # 添加分组信息
+                self.group_info.add_group('Environment')
             elif 3 == channel_index:
-                temp_wind_speed_info = WindSpeedInfo('Wind1VelY',results.group(3).strip(),channel_index,'G')
+                temp_wind_speed_info = WindSpeedInfo('Wind1VelY',results.group(3).strip(),channel_index,'G','Environment')
                 self.wind_speed_array.append(temp_wind_speed_info)
+                # 添加分组信息
+                self.group_info.add_group('Environment')
             elif 4 == channel_index:
-                temp_wind_speed_info = WindSpeedInfo('Wind1VelZ',results.group(3).strip(),channel_index,'G')
+                temp_wind_speed_info = WindSpeedInfo('Wind1VelZ',results.group(3).strip(),channel_index,'G','Environment')
                 self.wind_speed_array.append(temp_wind_speed_info)
+                # 添加分组信息
+                self.group_info.add_group('Environment')
             else:
                 pass
             return True
@@ -320,8 +334,19 @@ class SelFileParser(object):
             controller_name = results.group(2).strip()
             #进行单位转换
             controller_unit = Unit_Converter.convert_unit(results.group(3).strip())
-            temp_controller_info = Controller_Info(controller_name,controller_unit,channel_index)
-            self.controller_array.append(temp_controller_info)
+
+            #进行分组
+            lower_controller_name = controller_name.lower()
+            # 判断是否drive train
+            if lower_controller_name in SelFileParser.drive_train_array:
+                self.group_info.add_group('Drive train')
+                temp_controller_info = Controller_Info(controller_name, controller_unit, channel_index,None,'Drive train')
+                self.controller_array.append(temp_controller_info)
+            else:
+                self.group_info.add_group('Others')
+                temp_controller_info = Controller_Info(controller_name, controller_unit, channel_index,None,'Others')
+                self.controller_array.append(temp_controller_info)
+
             return True
 
         # else:
@@ -396,9 +421,24 @@ class SelFileParser(object):
                     section_name = section_name[1:]
             else:
                 pass
-            temp_channel_info = Channel_Info(var_name, component_name, frame_name, var_unit, section_name,
-                                                 channel_index)
-            self.channel_array.append(temp_channel_info)
+
+
+
+
+
+            #进行分组
+            if component_name.startswith('B') and frame_name.startswith('H'):
+                self.group_info.add_group('Hub')
+                temp_channel_info = Channel_Info(var_name, component_name, frame_name, var_unit, section_name,
+                                                 channel_index,'Hub')
+                self.channel_array.append(temp_channel_info)
+            else:
+                self.group_info.add_group(component_name)
+                temp_channel_info = Channel_Info(var_name, component_name, frame_name, var_unit, section_name,
+                                                 channel_index,component_name)
+                self.channel_array.append(temp_channel_info)
+
+
             return True
         return False
 

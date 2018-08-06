@@ -8,7 +8,7 @@ class WindSpeedInfo(object):
 
     '''
 
-    def __init__(self,speed_name,speed_unit,channel_index,frame_name):
+    def __init__(self,speed_name,speed_unit,channel_index,frame_name,group_name):
         '''
 
         '''
@@ -16,6 +16,9 @@ class WindSpeedInfo(object):
         self._wind_speed_name = speed_name
         self._wind_speed_unit = '(' + speed_unit + ')'
         self._frame_name = frame_name
+
+        #所在的分组信息
+        self._group_name = group_name
 
     @property
     def channel_index(self):
@@ -44,6 +47,10 @@ class WindSpeedInfo(object):
     @frame_name.setter
     def frame_name(self,frame_name):
         self._frame_name = frame_name
+
+    @property
+    def group_name(self):
+        return self._group_name
 
 
     def __str__(self):

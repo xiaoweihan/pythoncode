@@ -40,5 +40,7 @@ def test(x):
 
 if __name__ == '__main__':
 
-    pass
+    a = 'drive train'
+
+    print(a.capitalize())
 

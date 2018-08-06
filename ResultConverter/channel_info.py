@@ -7,7 +7,7 @@ class Channel_Info(object):
 
     '''
 
-    def __init__(self,var_name,component_name,frame_name,var_unit,section_name,channel_index):
+    def __init__(self,var_name,component_name,frame_name,var_unit,section_name,channel_index,group_name):
 
         self._var_name = var_name
         self._component_name = component_name
@@ -16,6 +16,8 @@ class Channel_Info(object):
         self._section_name = section_name
         #从1开始
         self._channel_index = channel_index
+
+        self._group_name = group_name
 
     @property
     def var_name(self):
@@ -42,6 +44,9 @@ class Channel_Info(object):
         return self._channel_index
 
 
+    @property
+    def group_name(self):
+        return self._group_name
 
     def __str__(self):
 

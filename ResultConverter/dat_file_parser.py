@@ -72,7 +72,8 @@ class AsciiDatFileParser(DatFileParser):
 
                     line_index += 1
 
-            return channel_data_matrix
+            #return channel_data_matrix
+            return channel_data_matrix.T
         except BaseException as e:
             print('exception info = {0},traceback = {1}.'.format(str(e),traceback.print_exc()))
             return None
@@ -120,22 +121,13 @@ class BinaryDatFileParser(DatFileParser):
                     if len(channel_data_array) == self._scan_num:
                         channel_data_matrix[:,x] = channel_data_array
 
-            return channel_data_matrix
-
+            #return channel_data_matrix
+            return channel_data_matrix.T
         except BaseException as e:
             print('exception info = {0},traceback = {1}.'.format(str(e), traceback.print_exc()))
             return None
 
 if __name__ == '__main__':
-
-
-    Parser = BinaryDatFileParser(r'd:\en121_alf_test_final_b.dat',250,1636)
-
-
-    result = Parser.parse_dat_file()
-    print(result)
-
-    print(result.dtype)
-    print(result.shape)
+    pass
 
 

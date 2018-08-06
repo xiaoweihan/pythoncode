@@ -7,7 +7,7 @@ class Controller_Info(object):
     '''
 
 
-    def __init__(self,controller_name,controller_unit,channel_index,frame_name = None):
+    def __init__(self,controller_name,controller_unit,channel_index,frame_name=None,group_name=None):
         '''
 
         :param controller_name:
@@ -18,6 +18,9 @@ class Controller_Info(object):
         self._controller_name =  controller_name
         self._controller_unit =  '(' + controller_unit + ')'
         self._frame_name = frame_name
+
+        #所在的分组信息
+        self._group_name = group_name
 
     @property
     def channel_index(self):
@@ -35,6 +38,10 @@ class Controller_Info(object):
     @property
     def frame_name(self):
         return self._frame_name
+
+    @property
+    def group_name(self):
+        return self._group_name
 
     @frame_name.setter
     def frame_name(self,frame_name):
