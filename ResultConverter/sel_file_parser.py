@@ -12,6 +12,7 @@ from frame_converter import *
 from unit_converter import *
 from component_converter import *
 from group_data_manager import *
+from var_name_converter import *
 class SelFileParser(object):
     '''
     this class implement parse the sel file
@@ -393,7 +394,8 @@ class SelFileParser(object):
 
         #对每行数据进行正则过滤
         #reg_pattern = r'\s+?(\d+)\s+?([FM][xyz])\s*?coo:\s*?(\w+)\s+?(\w+).*__(\w+)_(\w+)\s+?'
-        reg_pattern = r'\s+?(\d+)\s+?([FM][xyz])\s*?coo:\s*?(\w+)\s+?(\w+).*__([a-zA-Z0-9]+)(.*)\s+?'
+        #reg_pattern = r'\s+?(\d+)\s+?([FM][xyz])\s*?coo:\s*?(\w+)\s+?(\w+).*__([a-zA-Z0-9]+)(.*)\s+?'
+        reg_pattern = r'\s+?(\d+)\s+?([\w\s]+)\s*?coo:\s*?(\w+)\s+?(\w+).*__([A-Za-z0-9]+)(.*)\s+?'
         obj = re.compile(reg_pattern)
         #查看是否符合
         results = obj.match(line_content)
@@ -405,25 +407,27 @@ class SelFileParser(object):
             #channel_index
             channel_index = int(results.group(1).strip())
             #var_name
-            var_name = results.group(2).strip()
+            var_name = Var_Name_Converter.convert_var_name(results.group(2).strip())
             #frame_name
             frame_name = Frame_Converter.convert_frame(results.group(3).strip())
             #var_unit
             var_unit = Unit_Converter.convert_unit(results.group(4).strip())
-            #component_name
-            component_name = Component_Converter.convert_Component(results.group(5).strip())
             #section_name
             #有的部件没有section有的部件存在section，所以这个地方需要分开
-            section_name = results.group(6).strip().upper()
+            section_name = results.group(6).strip()
 
             if section_name:
-                if section_name[0] == '_':
-                    section_name = section_name[1:]
+                if section_name[0] == '_' and section_name[1] == 'z':
+                    section_name = section_name[1:].upper()
+                    # component_name
+                    component_name = Component_Converter.convert_Component(results.group(5).strip())
+                #处理yaw
+                else:
+                    # component_name
+                    component_name = Component_Converter.convert_Component(results.group(5).strip() + section_name)
+                    section_name = None
             else:
-                pass
-
-
-
+                component_name = Component_Converter.convert_Component(results.group(5).strip())
 
 
             #进行分组

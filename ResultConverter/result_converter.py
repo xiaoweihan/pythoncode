@@ -55,7 +55,7 @@ class ConcreteResultConverter(object):
         :return:
         '''
 
-        loggerInstance.debug_log('convert request comes...')
+        loggerInstance.debug_log('convert begin...')
         delete_h5_flag = False
         try:
 
@@ -338,7 +338,7 @@ class ConcreteResultConverter(object):
             # 如果需要删除h5文件
             if delete_h5_flag:
                 os.remove(str_h5_file_path)
-            loggerInstance.debug_log('convert request go...')
+            loggerInstance.debug_log('convert complete...')
 
     def inner_convert_result(self, element):
         '''
@@ -346,7 +346,7 @@ class ConcreteResultConverter(object):
         :param element:
         :return:
         '''
-        loggerInstance.debug_log('convert request comes...')
+        loggerInstance.debug_log('convert begin...')
         delete_h5_flag = False
         try:
             begin_time = time.time()
@@ -605,7 +605,7 @@ class ConcreteResultConverter(object):
             #如果需要删除h5文件
             if delete_h5_flag:
                 os.remove(str_h5_file_path)
-            loggerInstance.debug_log('convert request go...')
+            loggerInstance.debug_log('convert complete...')
 
     def ConvertResult(self, element):
         '''

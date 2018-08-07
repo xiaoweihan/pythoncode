@@ -2,7 +2,7 @@
 
 from collections import defaultdict
 
-class Group_data_element:
+class Group_data_element(object):
     '''
 
     '''
@@ -31,17 +31,14 @@ class Group_data_element:
         self._group_write_pos = group_write_pos
 
 
-class Group_data_manager:
+class Group_data_manager(object):
     '''
 
     '''
-
 
     def __init__(self):
 
         self._group_dict = defaultdict(lambda : Group_data_element())
-
-
     @property
     def group_dict(self):
         return self._group_dict

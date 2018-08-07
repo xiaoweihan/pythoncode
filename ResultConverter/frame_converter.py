@@ -12,6 +12,7 @@ class Frame_Converter(object):
                      'blade3':'B',
                      'global':'G',
                      'tower':'T',
+                     'towertop':'T',
                      'shaft':'R',
                      'nonrotating_shaft':'N',
                      'hub1':'H',
