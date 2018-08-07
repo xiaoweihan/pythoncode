@@ -7,7 +7,6 @@ import collections
 import socket
 # import multiprocessing
 # import concurrent.futures
-from datetime import *
 from Connector import ttypes
 from Connector import ResultConverter
 
@@ -60,7 +59,7 @@ class ConcreteResultConverter(object):
         delete_h5_flag = False
         try:
 
-            begin_time = datetime.now()#time.time()
+            begin_time = time.time()
 
             if not element:
                 loggerInstance.error_log('the param is invalid.')
@@ -327,8 +326,8 @@ class ConcreteResultConverter(object):
                 chan_stdev_data_set[current_index] = np.std(channel_data)
 
                 current_index += 1
-            end_time = datetime.now()
-            loggerInstance.debug_log('cost time = {0} seconds.'.format((end_time - begin_time).seconds))
+            end_time = time.time()
+            loggerInstance.debug_log('cost time = {0} seconds.'.format(end_time - begin_time))
             return True
         except BaseException as e:
             loggerInstance.fatal_log('this is something wrong {0}.', e)
@@ -336,15 +335,10 @@ class ConcreteResultConverter(object):
         finally:
             h5_root.flush()
             h5_root.close()
-
             # 如果需要删除h5文件
             if delete_h5_flag:
                 os.remove(str_h5_file_path)
             loggerInstance.debug_log('convert request go...')
-
-
-
-
 
     def inner_convert_result(self, element):
         '''
@@ -352,13 +346,10 @@ class ConcreteResultConverter(object):
         :param element:
         :return:
         '''
-
         loggerInstance.debug_log('convert request comes...')
         delete_h5_flag = False
         try:
-
-            begin_time = datetime.now()
-
+            begin_time = time.time()
             if not element:
                 loggerInstance.error_log('the param is invalid.')
                 return False
@@ -371,12 +362,10 @@ class ConcreteResultConverter(object):
             costTime = element.costTime
             loggerInstance.debug_log('ResultDir = {0},CopyDir = {1},HtcFilePath = {2},CostTime = {3}.'.format(strResultDir,strCopyDir,
                                      strHtcFilePath,costTime))
-
             #判断htcfile是否存在
             if not os.path.exists(strHtcFilePath):
                 loggerInstance.error_log('the {0} is not exist.'.format(strHtcFilePath))
                 return False
-
             #判断结果文件目录是否是一个目录
             if not os.path.isdir(strResultDir):
                 loggerInstance.error_log('the {0} is not dir.'.format(strResultDir))
@@ -386,8 +375,6 @@ class ConcreteResultConverter(object):
             if not os.path.isdir(strCopyDir):
                 loggerInstance.error_log('the {0} is not dir.'.format(strCopyDir))
                 return False
-
-
             #遍历resultdir文件夹，找出后缀名为sel与dat的
             for file_name in travel_dir(strResultDir):
 
@@ -399,8 +386,6 @@ class ConcreteResultConverter(object):
 
                 else:
                     pass
-
-
             #判断文件是否存在
             if not str_sel_file_name or not str_dat_file_name:
                 loggerInstance.error_log('the sel_path = {0},the dat_path ={1}'.format(str_sel_file_name,str_dat_file_name))
@@ -424,9 +409,6 @@ class ConcreteResultConverter(object):
             if data_array is None:
                 loggerInstance.error_log('parse dat file {0} failed.'.format(str_dat_file_name))
                 return False
-
-
-
             #组装h5文件
             sel_file_name,sel_file_extension = os.path.splitext(os.path.basename(str_sel_file_name))
             str_h5_file_path = os.path.join(strResultDir,sel_file_name)
@@ -610,8 +592,8 @@ class ConcreteResultConverter(object):
                 chan_stdev_data_set[current_index] = np.std(channel_data)
 
                 current_index += 1
-            end_time = datetime.now()
-            loggerInstance.debug_log('cost time = {0} seconds.'.format((end_time - begin_time).seconds))
+            end_time = time.time()
+            loggerInstance.debug_log('cost time = {0} seconds.'.format(end_time - begin_time))
             return True
         except BaseException as e:
             loggerInstance.fatal_log('this is something wrong {0}.', e)
@@ -625,9 +607,6 @@ class ConcreteResultConverter(object):
                 os.remove(str_h5_file_path)
             loggerInstance.debug_log('convert request go...')
 
-
-
-
     def ConvertResult(self, element):
         '''
 
@@ -636,9 +615,7 @@ class ConcreteResultConverter(object):
         '''
 
         #return self.inner_convert_result_split_block(element)
-        return self.inner_convert_result(element)
-
-
+        return self.inner_convert_result_split_block(element)
 def main():
     try:
         handler = ConcreteResultConverter()
@@ -663,8 +640,6 @@ if __name__ == '__main__':
 
     #开启服务
     main()
-
-
 
 
 

@@ -2,15 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4bd6fa5b-3495-42ed-8928-0ddd59d44ebd" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/channel_coordinate_convert_info.py" beforeDir="false" afterPath="$PROJECT_DIR$/channel_coordinate_convert_info.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/channel_info.py" beforeDir="false" afterPath="$PROJECT_DIR$/channel_info.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller_info.py" beforeDir="false" afterPath="$PROJECT_DIR$/controller_info.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dat_file_parser.py" beforeDir="false" afterPath="$PROJECT_DIR$/dat_file_parser.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/result_converter.py" beforeDir="false" afterPath="$PROJECT_DIR$/result_converter.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sel_file_parser.py" beforeDir="false" afterPath="$PROJECT_DIR$/sel_file_parser.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wind_speed_info.py" beforeDir="false" afterPath="$PROJECT_DIR$/wind_speed_info.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -24,8 +16,8 @@
         <counts>
           <entry key="project.closed" value="2" />
           <entry key="project.open.time.8" value="1" />
-          <entry key="project.open.time.9" value="1" />
-          <entry key="project.opened" value="2" />
+          <entry key="project.open.time.9" value="2" />
+          <entry key="project.opened" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -42,28 +34,28 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="py" value="1828" />
+          <entry key="py" value="1857" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Python" value="1828" />
+          <entry key="Python" value="1857" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/result_converter.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="82">
-              <caret line="612" column="37" lean-forward="true" selection-start-line="612" selection-start-column="37" selection-end-line="612" selection-end-column="37" />
+            <state relative-caret-position="9657">
+              <caret line="336" column="27" selection-start-line="336" selection-start-column="27" selection-end-line="336" selection-end-column="27" />
               <folding>
                 <element signature="e#14#23#0" expanded="true" />
-                <marker date="1533553518158" expanded="true" signature="910:915" ph="..." />
-                <marker date="1533553518158" expanded="true" signature="966:14424" ph="..." />
-                <marker date="1533553518158" expanded="true" signature="26938:26947" ph="..." />
+                <marker date="1533608656299" expanded="true" signature="887:892" ph="..." />
+                <marker date="1533608656299" expanded="true" signature="943:14368" ph="..." />
+                <marker date="1533608656299" expanded="true" signature="26854:26860" ph="..." />
               </folding>
             </state>
           </provider>
@@ -72,24 +64,12 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/group_data_manager.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="992">
-              <caret line="52" column="37" lean-forward="true" selection-start-line="52" selection-start-column="37" selection-end-line="52" selection-end-column="37" />
+            <state relative-caret-position="1050">
+              <caret line="37" lean-forward="true" selection-start-line="37" selection-end-line="37" />
               <folding>
                 <marker date="1533550641227" expanded="true" signature="76:596" ph="..." />
                 <marker date="1533550641227" expanded="true" signature="621:626" ph="..." />
                 <marker date="1533550641227" expanded="true" signature="809:815" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/sel_file_parser.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="9541">
-              <caret line="341" column="56" selection-start-line="341" selection-start-column="56" selection-end-line="341" selection-end-column="56" />
-              <folding>
-                <element signature="e#13#22#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -146,11 +126,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Mock.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="174">
-              <caret line="11" column="26" lean-forward="true" selection-start-line="11" selection-start-column="26" selection-end-line="11" selection-end-column="26" />
+            <state relative-caret-position="-168">
+              <caret line="19" column="60" lean-forward="true" selection-start-line="19" selection-start-column="60" selection-end-line="19" selection-end-column="60" />
               <folding>
                 <element signature="e#14#42#0" expanded="true" />
               </folding>
@@ -223,7 +203,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="1358" />
     <option name="y" value="-8" />
     <option name="width" value="1936" />
@@ -235,6 +215,17 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="ResultConverter" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ResultConverter" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
       <pane id="Scope">
         <subPane subId="Project Files">
           <expand>
@@ -250,17 +241,6 @@
               <item name="Root" type="cbb8eebc:String" user="Root" />
               <item name="External Dependencies" type="cbb8eebc:String" user="External Dependencies" />
               <item name="D:" type="cbb8eebc:String" user="D:" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="ResultConverter" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ResultConverter" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -429,7 +409,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="1358" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="1358" y="-8" width="1936" height="1056" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15279241" />
@@ -596,23 +576,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sel_file_parser.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="9541">
-          <caret line="341" column="56" selection-start-line="341" selection-start-column="56" selection-end-line="341" selection-end-column="56" />
-          <folding>
-            <element signature="e#13#22#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/channel_info.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1189">
-          <caret line="41" column="13" selection-start-line="41" selection-start-column="13" selection-end-line="41" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/controller_info.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="261">
@@ -620,13 +583,6 @@
           <folding>
             <marker date="1533551998410" expanded="true" signature="896:902" ph="..." />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wind_speed_info.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1479">
-          <caret line="51" column="18" selection-start-line="51" selection-start-column="8" selection-end-line="51" selection-end-column="18" />
         </state>
       </provider>
     </entry>
@@ -647,10 +603,30 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Mock.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-168">
+          <caret line="19" column="60" lean-forward="true" selection-start-line="19" selection-start-column="60" selection-end-line="19" selection-end-column="60" />
+          <folding>
+            <element signature="e#14#42#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sel_file_parser.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="354">
+          <caret line="419" column="42" lean-forward="true" selection-start-line="419" selection-start-column="42" selection-end-line="419" selection-end-column="42" />
+          <folding>
+            <element signature="e#13#22#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/group_data_manager.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="992">
-          <caret line="52" column="37" lean-forward="true" selection-start-line="52" selection-start-column="37" selection-end-line="52" selection-end-column="37" />
+        <state relative-caret-position="1050">
+          <caret line="37" lean-forward="true" selection-start-line="37" selection-end-line="37" />
           <folding>
             <marker date="1533550641227" expanded="true" signature="76:596" ph="..." />
             <marker date="1533550641227" expanded="true" signature="621:626" ph="..." />
@@ -659,25 +635,29 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/result_converter.py">
+    <entry file="file://$PROJECT_DIR$/channel_info.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="82">
-          <caret line="612" column="37" lean-forward="true" selection-start-line="612" selection-start-column="37" selection-end-line="612" selection-end-column="37" />
-          <folding>
-            <element signature="e#14#23#0" expanded="true" />
-            <marker date="1533553518158" expanded="true" signature="910:915" ph="..." />
-            <marker date="1533553518158" expanded="true" signature="966:14424" ph="..." />
-            <marker date="1533553518158" expanded="true" signature="26938:26947" ph="..." />
-          </folding>
+        <state relative-caret-position="1189">
+          <caret line="41" column="13" selection-start-line="41" selection-start-column="13" selection-end-line="41" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Mock.py">
+    <entry file="file://$PROJECT_DIR$/wind_speed_info.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="174">
-          <caret line="11" column="26" lean-forward="true" selection-start-line="11" selection-start-column="26" selection-end-line="11" selection-end-column="26" />
+        <state relative-caret-position="1479">
+          <caret line="51" column="18" selection-start-line="51" selection-start-column="8" selection-end-line="51" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/result_converter.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="9657">
+          <caret line="336" column="27" selection-start-line="336" selection-start-column="27" selection-end-line="336" selection-end-column="27" />
           <folding>
-            <element signature="e#14#42#0" expanded="true" />
+            <element signature="e#14#23#0" expanded="true" />
+            <marker date="1533608656299" expanded="true" signature="887:892" ph="..." />
+            <marker date="1533608656299" expanded="true" signature="943:14368" ph="..." />
+            <marker date="1533608656299" expanded="true" signature="26854:26860" ph="..." />
           </folding>
         </state>
       </provider>
