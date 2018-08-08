@@ -12,9 +12,9 @@ class Component_Converter(object):
                      'b3':'B3',
                      'twr':'Twr',
                      'hub':'Hub',
-                     'nac':'Nac',
-                     'nacelle':'Nac',
-                     'yaw_bear':'Yaw_Bear'
+                     'nac':'Nacelle',
+                     'nacelle':'Nacelle',
+                     'yaw_bear':'Yaw bearing'
                      }
 
 
