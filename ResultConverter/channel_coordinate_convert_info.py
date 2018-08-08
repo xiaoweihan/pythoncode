@@ -4,6 +4,7 @@ import reprlib
 import itertools
 import compileall
 import log
+import os
 class Channel_Coordinate_Convert_Info(object):
     '''
 
@@ -40,7 +41,10 @@ def test(x):
 
 if __name__ == '__main__':
 
-    a = 'drive train'
+    temp_path = r'b.txt'
 
-    print(a.capitalize())
+
+    a,b = os.path.split(temp_path)
+
+    print(a,b)
 

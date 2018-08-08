@@ -129,7 +129,7 @@ class ConcreteResultConverter(object):
                 return False
 
             # 组装h5文件
-            sel_file_name, sel_file_extension = os.path.splitext(os.path.basename(str_sel_file_name))
+            sel_file_name, sel_file_extension = os.path.splitext(os.path.basename(strHtcFilePath))
             str_h5_file_path = os.path.join(strResultDir, sel_file_name)
             str_h5_file_path += '.h5'
 
