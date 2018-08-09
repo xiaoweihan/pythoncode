@@ -13,6 +13,7 @@ from unit_converter import *
 from component_converter import *
 from group_data_manager import *
 from var_name_converter import *
+from group_name import *
 class SelFileParser(object):
     '''
     this class implement parse the sel file
@@ -437,9 +438,10 @@ class SelFileParser(object):
                                                  channel_index,'Hub')
                 self.channel_array.append(temp_channel_info)
             else:
-                self.group_info.add_group(component_name)
+                group_name = Group_Name.convert_group_name(component_name)
+                self.group_info.add_group(group_name)
                 temp_channel_info = Channel_Info(var_name, component_name, frame_name, var_unit, section_name,
-                                                 channel_index,component_name)
+                                                 channel_index,group_name)
                 self.channel_array.append(temp_channel_info)
 
 
