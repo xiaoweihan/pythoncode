@@ -9,6 +9,7 @@ import subprocess
 import numpy
 import random
 import csv
+from collections import namedtuple
 def test_fun():
     yield 1
     print 'pause'
@@ -98,4 +99,12 @@ if __name__ == '__main__':
     # print 'end'
     #test_numpy()
     #test_matplotlib()
-    test_csv(r'd:\a.csv')
+    #test_csv(r'd:\a.csv')
+
+    person = namedtuple('ssss',['age','tel'])
+
+
+    A = person(age=22,tel='15261850264')
+
+
+    print A,type(A)
